@@ -3,4 +3,5 @@
 .awcache
 
 node_modules
+coverage
 build

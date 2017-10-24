@@ -9,7 +9,7 @@
     "build": "webpack --config webpack/index.js",
     "postbuild": "webpack --config webpack/server.js",
     "predev": "npm run build",
-    "dev": "nodemon build/server.js & npm run watch",
+    "dev": "nodemon build/server.js",
     "precommit": "lint-staged",
     "test": "jest --coverage",
     "watch": "npm run test -- -u --watch"
