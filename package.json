@@ -4,14 +4,15 @@
   "description":
     "A typescript express react boilerplate for building isomorphic javascript applications",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf build",
     "prebuild": "npm run clean",
     "build": "webpack --config webpack/index.js",
     "postbuild": "webpack --config webpack/server.js",
     "predev": "npm run build",
-    "dev": "nodemon build/server.js",
-    "lint": "tslint -p tslint.json --fix"
+    "dev": "nodemon build/server.js & npm run watch",
+    "precommit": "lint-staged",
+    "test": "jest --coverage",
+    "watch": "npm run test -- -u --watch"
   },
   "keywords": ["typescript", "react", "express", "boilerplate", "starter"],
   "author": "whoisandy",
@@ -59,5 +60,12 @@
     "morgan": "^1.9.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "tslint -p tslint.json --fix",
+      "prettier --parser typescript --write",
+      "git add"
+    ]
   }
 }
