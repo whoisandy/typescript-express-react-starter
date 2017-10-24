@@ -61,6 +61,14 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
+  "jest": {
+    "mapCoverage": true,
+    "moduleFileExtensions": ["ts", "tsx"],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx)$"
+  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "tslint -p tslint.json --fix",
